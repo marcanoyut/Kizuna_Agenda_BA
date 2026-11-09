@@ -28,7 +28,7 @@
             }
         }
     </script>
-    <!-- Google Fonts: Caveat & Montserrat -->
+    <!-- Google Fonts -->
     <link href="https://googleapis.com" rel="stylesheet">
     <!-- FontAwesome para iconos -->
     <link rel="stylesheet" href="https://cloudflare.com">
@@ -66,6 +66,8 @@
     <!-- HEADER / NAVEGACIÓN -->
     <header class="sticky top-0 z-50 bg-darkBg/90 backdrop-blur-md border-b border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- LOGO -->
             <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('home')">
                 <svg xmlns="http://w3.org" viewBox="0 0 120 70" class="w-12 h-12">
                     <path d="M20,55 L55,15 L62,22 L70,22 L77,15 L100,55 Z" stroke="#ff2a8d" stroke-width="2.5" fill="none" style="filter: drop-shadow(0 0 6px #ff2a8d);"/>
@@ -79,6 +81,7 @@
                 </div>
             </div>
 
+            <!-- NAVEGACIÓN DESKTOP -->
             <nav class="hidden md:flex space-x-2">
                 <button onclick="switchTab('home')" id="btn-home" class="nav-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-neonPink text-white shadow-neon">
                     <i class="fa-solid fa-house mr-2"></i>Inicio
@@ -104,6 +107,7 @@
             </div>
         </div>
 
+        <!-- MENÚ MÓVIL -->
         <div id="mobile-menu" class="hidden bg-cardBg border-b border-white/10 px-4 pt-2 pb-4 space-y-2">
             <button onclick="switchTab('home'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-lg text-base font-medium text-white bg-neonPink/20">Inicio</button>
             <button onclick="switchTab('directory'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white">Directorio</button>
@@ -113,10 +117,10 @@
         </div>
     </header>
 
-    <!-- CUERPO DE LAS PESTAÑAS -->
+    <!-- CUERPO PRINCIPAL -->
     <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
 
-        <!-- INICIO -->
+        <!-- VISTA: INICIO -->
         <div id="tab-home" class="tab-content active space-y-12">
             <div class="text-center py-12 max-w-3xl mx-auto space-y-6">
                 <h1 class="text-4xl sm:text-6xl font-bold tracking-tight text-white">
@@ -133,21 +137,21 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-cardBg p-6 rounded-2xl border border-white/5 space-y-4 shadow-sm">
+                <div class="bg-cardBg p-6 rounded-2xl border border-white/5 space-y-4">
                     <div class="w-12 h-12 rounded-xl bg-neonPink/10 flex items-center justify-center text-neonPink text-xl shadow-neon">
                         <i class="fa-solid fa-utensils"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white">Gastronomía y Locales</h3>
                     <p class="text-gray-400 text-sm">Encontrá desde el ramen más tradicional en Palermo hasta tiendas de importación especializadas en el Microcentro.</p>
                 </div>
-                <div class="bg-cardBg p-6 rounded-2xl border border-white/5 space-y-4 shadow-sm">
+                <div class="bg-cardBg p-6 rounded-2xl border border-white/5 space-y-4">
                     <div class="w-12 h-12 rounded-xl bg-neonBlue/10 flex items-center justify-center text-neonBlue text-xl shadow-neon-blue">
                         <i class="fa-solid fa-calendar-check"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white">Eventos & Matsuri</h3>
                     <p class="text-gray-400 text-sm">Mantenete al tanto de los festivales, talleres de origami, ferias de manga/anime y ciclos de cine debate.</p>
                 </div>
-                <div class="bg-cardBg p-6 rounded-2xl border border-white/5 space-y-4 shadow-sm">
+                <div class="bg-cardBg p-6 rounded-2xl border border-white/5 space-y-4">
                     <div class="w-12 h-12 rounded-xl bg-neonPurple/10 flex items-center justify-center text-neonPurple text-xl">
                         <i class="fa-solid fa-users"></i>
                     </div>
@@ -157,6 +161,6 @@
             </div>
         </div>
 
-        <!-- DIRECTORIO -->
+        <!-- VISTA: DIRECTORIO -->
         <div id="tab-directory" class="tab-content space-y-8">
             <div class="border-l-4 border-neonPink pl-4">
