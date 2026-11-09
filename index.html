@@ -41,21 +41,13 @@
         .neon-text-pink {
             text-shadow: 0 0 10px rgba(255, 42, 141, 0.8), 0 0 20px rgba(255, 42, 141, 0.5);
         }
-        .neon-text-white {
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.4);
-        }
         .neon-border {
             box-shadow: 0 0 12px rgba(255, 42, 141, 0.4);
             border: 1px solid rgba(255, 42, 141, 0.6);
         }
-        .neon-border-hover:hover {
-            box-shadow: 0 0 20px rgba(255, 42, 141, 0.7);
-            border-color: #ff2a8d;
-        }
         .font-caveat {
             font-family: 'Caveat', cursive;
         }
-        /* Ocultar secciones inactivas de forma limpia */
         .tab-content {
             display: none;
         }
@@ -74,8 +66,6 @@
     <!-- HEADER / NAVEGACIÓN -->
     <header class="sticky top-0 z-50 bg-darkBg/90 backdrop-blur-md border-b border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            
-            <!-- LOGO CON MONTE FUJI Y FLORES (SVG Inline) -->
             <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('home')">
                 <svg xmlns="http://w3.org" viewBox="0 0 120 70" class="w-12 h-12">
                     <path d="M20,55 L55,15 L62,22 L70,22 L77,15 L100,55 Z" stroke="#ff2a8d" stroke-width="2.5" fill="none" style="filter: drop-shadow(0 0 6px #ff2a8d);"/>
@@ -89,300 +79,84 @@
                 </div>
             </div>
 
-            <!-- MENÚ DE NAVEGACIÓN DESKTOP -->
-            <nav class="hidden md:flex space-x-1 lg:space-x-3">
+            <nav class="hidden md:flex space-x-2">
                 <button onclick="switchTab('home')" id="btn-home" class="nav-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-neonPink text-white shadow-neon">
                     <i class="fa-solid fa-house mr-2"></i>Inicio
                 </button>
                 <button onclick="switchTab('directory')" id="btn-directory" class="nav-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 text-gray-300 hover:text-white hover:bg-white/5">
-                    <i class="fa-solid fa-store mr-2"></i>Directorio (RF01)
+                    <i class="fa-solid fa-store mr-2"></i>Directorio
                 </button>
                 <button onclick="switchTab('map')" id="btn-map" class="nav-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 text-gray-300 hover:text-white hover:bg-white/5">
-                    <i class="fa-solid fa-map-location-dot mr-2"></i>Mapa (RF02)
+                    <i class="fa-solid fa-map-location-dot mr-2"></i>Mapa
                 </button>
                 <button onclick="switchTab('agenda')" id="btn-agenda" class="nav-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 text-gray-300 hover:text-white hover:bg-white/5">
-                    <i class="fa-solid fa-calendar-days mr-2"></i>Agenda (RF03)
+                    <i class="fa-solid fa-calendar-days mr-2"></i>Agenda
                 </button>
                 <button onclick="switchTab('apply')" id="btn-apply" class="nav-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 text-gray-300 hover:text-white hover:bg-white/5">
-                    <i class="fa-solid fa-handshake mr-2"></i>Postulación (RF05)
+                    <i class="fa-solid fa-handshake mr-2"></i>Postulación
                 </button>
             </nav>
 
-            <!-- BOTÓN MENÚ MÓVIL -->
             <div class="md:hidden flex items-center">
-                <button onclick="toggleMobileMenu()" class="text-gray-300 hover:text-white p-2 focus:outline-none">
+                <button onclick="toggleMobileMenu()" class="text-gray-300 hover:text-white p-2">
                     <i id="mobile-icon" class="fa-solid fa-bars text-2xl"></i>
                 </button>
             </div>
         </div>
 
-        <!-- MENÚ MÓVIL DESPLEGABLE -->
-        <div id="mobile-menu" class="hidden md:hidden bg-cardBg border-b border-white/10 px-4 pt-2 pb-4 space-y-2">
+        <div id="mobile-menu" class="hidden bg-cardBg border-b border-white/10 px-4 pt-2 pb-4 space-y-2">
             <button onclick="switchTab('home'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-lg text-base font-medium text-white bg-neonPink/20">Inicio</button>
-            <button onclick="switchTab('directory'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white">Directorio (RF01)</button>
-            <button onclick="switchTab('map'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white">Mapa (RF02)</button>
-            <button onclick="switchTab('agenda'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white">Agenda (RF03)</button>
-            <button onclick="switchTab('apply'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white">Postulación (RF05)</button>
+            <button onclick="switchTab('directory'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white">Directorio</button>
+            <button onclick="switchTab('map'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white">Mapa</button>
+            <button onclick="switchTab('agenda'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white">Agenda</button>
+            <button onclick="switchTab('apply'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white">Postulación</button>
         </div>
     </header>
 
-    <!-- CONTENIDO PRINCIPAL / VISTAS -->
+    <!-- CUERPO DE LAS PESTAÑAS -->
     <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
 
-        <!-- 1. VISTA HOME / PRESENTACIÓN -->
-        <section id="tab-home" class="tab-content active space-y-12">
+        <!-- INICIO -->
+        <div id="tab-home" class="tab-content active space-y-12">
             <div class="text-center py-12 max-w-3xl mx-auto space-y-6">
                 <h1 class="text-4xl sm:text-6xl font-bold tracking-tight text-white">
                     Descubrí la cultura japonesa en <span class="text-neonPink neon-text-pink font-caveat text-5xl sm:text-7xl block sm:inline mt-2">Buenos Aires</span>
                 </h1>
-                <p class="text-gray-400 text-lg sm:text-xl font-light leading-relaxed">
+                <p class="text-gray-400 text-lg sm:text-xl font-light">
                     Un espacio de encuentro digital que conecta la tradición, gastronomía, arte y emprendimientos locales inspirados en Japón dentro de la capital porteña.
                 </p>
                 <div class="pt-4">
-                    <button onclick="switchTab('directory')" class="px-8 py-4 bg-neonPink text-white font-semibold rounded-full shadow-neon hover:bg-neonPinkHover transition-all duration-300 text-md">
+                    <button onclick="switchTab('directory')" class="px-8 py-4 bg-neonPink text-white font-semibold rounded-full shadow-neon hover:bg-neonPinkHover transition-all duration-300">
                         Explorar Directorio <i class="fa-solid fa-arrow-right ml-2"></i>
                     </button>
                 </div>
             </div>
 
-            <!-- Tarjetas de Características Destacadas -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-cardBg p-6 rounded-2xl border border-white/5 space-y-4">
+                <div class="bg-cardBg p-6 rounded-2xl border border-white/5 space-y-4 shadow-sm">
                     <div class="w-12 h-12 rounded-xl bg-neonPink/10 flex items-center justify-center text-neonPink text-xl shadow-neon">
                         <i class="fa-solid fa-utensils"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white">Gastronomía y Locales</h3>
                     <p class="text-gray-400 text-sm">Encontrá desde el ramen más tradicional en Palermo hasta tiendas de importación especializadas en el Microcentro.</p>
                 </div>
-                <div class="bg-cardBg p-6 rounded-2xl border border-white/5 space-y-4">
+                <div class="bg-cardBg p-6 rounded-2xl border border-white/5 space-y-4 shadow-sm">
                     <div class="w-12 h-12 rounded-xl bg-neonBlue/10 flex items-center justify-center text-neonBlue text-xl shadow-neon-blue">
                         <i class="fa-solid fa-calendar-check"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white">Eventos & Matsuri</h3>
                     <p class="text-gray-400 text-sm">Mantenete al tanto de los festivales, talleres de origami, ferias de manga/anime y ciclos de cine debate.</p>
                 </div>
-                <div class="bg-cardBg p-6 rounded-2xl border border-white/5 space-y-4">
-Usa el código con precaución.
-
-
-Comunidad Activa
-Un puente de intercambio cultural y comercial para creadores, difusores y amantes de la cultura nipona.
-
-
- Directorio de Espacios
-
-Explorá locales gastronómicos, tiendas de diseño, centros culturales y más.
-
-
-
-Gastronomía
-
-
-Fuji Ramen Bar
-Especialistas en Hakata Tonkotsu y caldos artesanales de larga cocción. Ambiente inspirado en los callejones de Tokio.
-
- Palermo, CABA
- 4.8
-
-
-
-Cultura & Arte
-
-
-Centro Cultural Sakura
-Clases de idioma japonés, talleres estacionales de caligrafía (Shodo), Bonsai, Origami y ceremonia del té.
-
- Almagro, CABA
- 4.9
-
-
-
-Tiendas
-
-
-Nippon Import & Design
-Productos exclusivos importados, papelería fina, snacks exóticos y vajilla de cerámica traída directamente desde Kioto.
-
- Belgrano, CABA
- 4.6
-
-
-
-
- Mapa Interactivo Cultural
-
-Explorá los puntos clave distribuidos a lo largo y ancho de Buenos Aires.
-Puntos Destacados
-
-Jardín Japonés de BA
-Palermo (Av. Casares)
-
-
-Zona Comercial Belgrano
-Locales y supermercados
-
-
-Asociación Nikkei Argentina
-Centro institucional San Telmo
-
-
-
-
-[Simulación de Mapa] Aquí se renderizará el mapa dinámico geolocalizado mediante coordenadas de la API.
-
- Fuji Ramen
-
-
- Jardín Japonés
-
-
-
- Agenda de Eventos
-
-Cronograma de actividades, festivales colectivos y eventos independientes.
-15
-Nov
-
-
-Festival
-Aki Matsuri de Primavera
- 11:00 a 19:00 hs —  Predio de Colectividades
-
-
-
-Ver Detalles
-
-22
-Nov
-
-
-Taller
-Introducción al Sumi-e (Pintura)
- 16:30 a 18:30 hs —  Atelier Almagro
-
-
-
-Ver Detalles
-
-05
-Dic
-
-
-Cine Debate
-Ciclo Studio Ghibli Clásicos
- 20:00 hs —  Cine Club Cultural
-
-
-
-Ver Detalles
-
-
-
- Formulario de Postulación
-
-Registrá tu comercio, restaurante o emprendimiento cultural para formar parte de la red Kizuna.
-Nombre del Emprendimiento *
-Categoría Principal *
-Seleccionar...
-Gastronomía (Ramen, Sushi, Dulces)
-Tienda / Productos Importados
-Arte / Diseño / Ilustración
-Educación / Idiomas / Talleres
-
-
-Dirección Física o Barrio (Buenos Aires) *
-Enlace Web o Instagram
-Email de Contacto *
-Breve Descripción de la propuesta *
-Enviar Postulación de Comercio
-
-
-
-
-¡Postulación Enviada con Éxito!
-
-Revisaremos tu propuesta y nos pondremos en contacto vía email para incorporarte al directorio. ¡Gracias por sumarte!
-
-
-
-Enviar otra respuesta
-
-
-
-
-© 2026 Kizuna BA. Todos los derechos reservados.
-
-
-
-
-
-
-// Lógica de ruteo y alternancia de pestañas dinámicas (SPA)
-function switchTab(tabId) {
-// Ocultar todas las vistas
-const contents = document.querySelectorAll('.tab-content');
-contents.forEach(content => content.classList.remove('active'));
-// Quitar estilos activos de todos los botones de escritorio
-const buttons = document.querySelectorAll('.nav-btn');
-buttons.forEach(btn => {
-btn.classList.remove('bg-neonPink', 'text-white', 'shadow-neon');
-btn.classList.add('text-gray-300', 'hover:text-white', 'hover:bg-white/5');
-});
-// Activar la vista seleccionada
-const activeContent = document.getElementById(tab-${tabId});
-if (activeContent) {
-activeContent.classList.add('active');
-}
-// Activar el botón de navegación correspondiente
-const activeRegisterButton = document.getElementById(btn-${tabId});
-if (activeRegisterButton) {
-activeRegisterButton.classList.remove('text-gray-300', 'hover:text-white', 'hover:bg-white/5');
-activeRegisterButton.classList.add('bg-neonPink', 'text-white', 'shadow-neon');
-}
-// Llevar scroll al inicio de página suavemente al cambiar de vista
-window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-// Lógica de colapso y apertura del menú móvil hámburguesa
-function toggleMobileMenu() {
-const menu = document.getElementById('mobile-menu');
-const icon = document.getElementById('mobile-icon');
-if (menu.classList.contains('hidden')) {
-menu.classList.remove('hidden');
-icon.classList.remove('fa-bars');
-icon.classList.add('fa-xmark', 'text-neonPink');
-} else {
-menu.classList.add('hidden');
-icon.classList.remove('fa-xmark', 'text-neonPink');
-icon.classList.add('fa-bars');
-}
-}
-// Simulación interactiva del envío de formulario de postulación (RF05)
-function handleFormSubmit(event) {
-event.preventDefault(); // Evitar recarga real de página
-const form = document.getElementById('apply-form');
-const successBlock = document.getElementById('success-feedback');
-form.classList.add('hidden');
-successBlock.classList.remove('hidden');
-}
-// Restaurar estado visual original del formulario
-function resetFormView() {
-const form = document.getElementById('apply-form');
-const successBlock = document.getElementById('success-feedback');
-form.reset();
-successBlock.classList.add('hidden');
-form.classList.remove('hidden');
-}
-
-
-
-### 🛠️ ¿Qué mejoras e integraciones incluye?
-*   **JavaScript SPA Nativo:** Las funciones `switchTab` alternan limpiamente las clases entre secciones, logrando una navegación instantánea sin refrescar el navegador.
-*   **Maquetación de Requerimientos:** Se estructuró el **Directorio de Espacios**, la interfaz simulada para el **Mapa Geográfico**, la **Agenda** ordenada de eventos por tarjeta, y el **Formulario de Postulación de Comercios** con validación nativa (`required`).
-*   **Feedback de Usuario:** Al rellenar los datos de postulación y presionar enviar, el formulario se oculta automáticamente mostrando una ventana de confirmación estética en color verde sin recargar la pantalla.
-
-<FollowUp>
-Si querés, decime si necesitás:
-* Cambiar las **categorías o campos** del formulario de postulación.
-* Incorporar una **base de datos local en JSON** con locales reales de Buenos Aires para renderizarlos dinámicamente con JavaScript.
-* Modificar la **paleta de colores** o añadir animaciones adicionales.
-</FollowUp>
+                <div class="bg-cardBg p-6 rounded-2xl border border-white/5 space-y-4 shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-neonPurple/10 flex items-center justify-center text-neonPurple text-xl">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Comunidad Activa</h3>
+                    <p class="text-gray-400 text-sm">Un puente de intercambio cultural y comercial para creadores, difusores y amantes de la cultura nipona.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- DIRECTORIO -->
+        <div id="tab-directory" class="tab-content space-y-8">
+            <div class="border-l-4 border-neonPink pl-4">
