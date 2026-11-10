@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kizuna BA - Comunidad Japonesa & Fusión en Buenos Aires</title>
+    <title>Kizuna BA - Comunidad Japonesa</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://tailwindcss.com"></script>
     <script>
@@ -11,156 +11,120 @@
             darkMode: 'class',
             theme: {
                 extend: {
-                    colors: {
-                        darkBg: '#0a0a0c',
-                        cardBg: '#131318',
-                        neonPink: '#ff2a8d',
-                        neonPinkHover: '#e01c78',
-                        neonPurple: '#b026ff',
-                        neonBlue: '#00f0ff',
-                    },
-                    boxShadow: {
-                        'neon': '0 0 15px rgba(255, 42, 141, 0.4), inset 0 0 15px rgba(255, 42, 141, 0.1)',
-                        'neon-glow': '0 0 25px rgba(255, 42, 141, 0.7)',
-                        'neon-blue': '0 0 15px rgba(0, 240, 255, 0.4)',
-                    }
+                    colors: { darkBg: '#0a0a0c', cardBg: '#131318', neonPink: '#ff2a8d', neonPinkHover: '#e01c78', neonBlue: '#00f0ff' },
+                    boxShadow: { 'neon': '0 0 15px rgba(255, 42, 141, 0.4)', 'neon-blue': '0 0 15px rgba(0, 240, 255, 0.4)' }
                 }
             }
         }
     </script>
-    <!-- Google Fonts -->
-    <link href="https://googleapis.com" rel="stylesheet">
-    <!-- FontAwesome para iconos -->
-    <link rel="stylesheet" href="https://cloudflare.com">
     <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #0a0a0c;
-            color: #f3f4f6;
-        }
-        .neon-text-pink {
-            text-shadow: 0 0 10px rgba(255, 42, 141, 0.8), 0 0 20px rgba(255, 42, 141, 0.5);
-        }
-        .neon-border {
-            box-shadow: 0 0 12px rgba(255, 42, 141, 0.4);
-            border: 1px solid rgba(255, 42, 141, 0.6);
-        }
-        .font-caveat {
-            font-family: 'Caveat', cursive;
-        }
-        .tab-content {
-            display: none;
-        }
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.4s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        body { font-family: sans-serif; background-color: #0a0a0c; color: #f3f4f6; }
+        .neon-text-pink { text-shadow: 0 0 10px rgba(255, 42, 141, 0.8); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.4s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
-<body class="bg-darkBg min-h-screen flex flex-col justify-between selection:bg-neonPink selection:text-white">
-
-    <!-- HEADER / NAVEGACIÓN -->
+<body class="bg-darkBg min-h-screen flex flex-col justify-between">
+    
+    <!-- HEADER -->
     <header class="sticky top-0 z-50 bg-darkBg/90 backdrop-blur-md border-b border-white/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            
-            <!-- LOGO -->
+        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('home')">
-                <svg xmlns="http://w3.org" viewBox="0 0 120 70" class="w-12 h-12">
-                    <path d="M20,55 L55,15 L62,22 L70,22 L77,15 L100,55 Z" stroke="#ff2a8d" stroke-width="2.5" fill="none" style="filter: drop-shadow(0 0 6px #ff2a8d);"/>
-                    <path d="M48,25 Q55,32 65,30 Q72,35 80,25" stroke="#ffffff" stroke-width="1.5" fill="none" style="filter: drop-shadow(0 0 4px #ffffff);"/>
-                    <path d="M 95,50 Q 105,30 98,10" stroke="#ff75c3" stroke-width="1.5" fill="none"/>
-                    <circle cx="98" cy="10" r="3" stroke="#ffffff" fill="#ff2a8d" />
-                </svg>
-                <div>
-                    <span class="font-caveat text-3xl font-bold text-neonPink neon-text-pink tracking-wide">Kizuna</span>
-                    <span class="block text-[10px] tracking-[0.2em] uppercase text-white/80 font-medium">Comunidad Japonesa BA</span>
-                </div>
+                <span class="text-3xl font-bold text-neonPink neon-text-pink">Kizuna</span>
             </div>
-
-            <!-- NAVEGACIÓN DESKTOP -->
-            <nav class="hidden md:flex space-x-2">
-                <button onclick="switchTab('home')" id="btn-home" class="nav-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-neonPink text-white shadow-neon">
-                    <i class="fa-solid fa-house mr-2"></i>Inicio
-                </button>
-                <button onclick="switchTab('directory')" id="btn-directory" class="nav-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 text-gray-300 hover:text-white hover:bg-white/5">
-                    <i class="fa-solid fa-store mr-2"></i>Directorio
-                </button>
-                <button onclick="switchTab('map')" id="btn-map" class="nav-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 text-gray-300 hover:text-white hover:bg-white/5">
-                    <i class="fa-solid fa-map-location-dot mr-2"></i>Mapa
-                </button>
-                <button onclick="switchTab('agenda')" id="btn-agenda" class="nav-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 text-gray-300 hover:text-white hover:bg-white/5">
-                    <i class="fa-solid fa-calendar-days mr-2"></i>Agenda
-                </button>
-                <button onclick="switchTab('apply')" id="btn-apply" class="nav-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 text-gray-300 hover:text-white hover:bg-white/5">
-                    <i class="fa-solid fa-handshake mr-2"></i>Postulación
-                </button>
+            <nav class="flex space-x-2">
+                <button onclick="switchTab('home')" id="btn-home" class="nav-btn px-4 py-2 rounded-full text-sm bg-neonPink text-white shadow-neon">Inicio</button>
+                <button onclick="switchTab('directory')" id="btn-directory" class="nav-btn px-4 py-2 rounded-full text-sm text-gray-300 hover:bg-white/5">Directorio</button>
+                <button onclick="switchTab('map')" id="btn-map" class="nav-btn px-4 py-2 rounded-full text-sm text-gray-300 hover:bg-white/5">Mapa</button>
+                <button onclick="switchTab('apply')" id="btn-apply" class="nav-btn px-4 py-2 rounded-full text-sm text-gray-300 hover:bg-white/5">Postulación</button>
             </nav>
-
-            <div class="md:hidden flex items-center">
-                <button onclick="toggleMobileMenu()" class="text-gray-300 hover:text-white p-2">
-                    <i id="mobile-icon" class="fa-solid fa-bars text-2xl"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- MENÚ MÓVIL -->
-        <div id="mobile-menu" class="hidden bg-cardBg border-b border-white/10 px-4 pt-2 pb-4 space-y-2">
-            <button onclick="switchTab('home'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-lg text-base font-medium text-white bg-neonPink/20">Inicio</button>
-            <button onclick="switchTab('directory'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white">Directorio</button>
-            <button onclick="switchTab('map'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white">Mapa</button>
-            <button onclick="switchTab('agenda'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white">Agenda</button>
-            <button onclick="switchTab('apply'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white">Postulación</button>
         </div>
     </header>
 
-    <!-- CUERPO PRINCIPAL -->
-    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
-
+    <!-- CONTENIDO INTERACTIVO -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 py-8 w-full">
+        
         <!-- VISTA: INICIO -->
-        <div id="tab-home" class="tab-content active space-y-12">
-            <div class="text-center py-12 max-w-3xl mx-auto space-y-6">
-                <h1 class="text-4xl sm:text-6xl font-bold tracking-tight text-white">
-                    Descubrí la cultura japonesa en <span class="text-neonPink neon-text-pink font-caveat text-5xl sm:text-7xl block sm:inline mt-2">Buenos Aires</span>
-                </h1>
-                <p class="text-gray-400 text-lg sm:text-xl font-light">
-                    Un espacio de encuentro digital que conecta la tradición, gastronomía, arte y emprendimientos locales inspirados en Japón dentro de la capital porteña.
-                </p>
-                <div class="pt-4">
-                    <button onclick="switchTab('directory')" class="px-8 py-4 bg-neonPink text-white font-semibold rounded-full shadow-neon hover:bg-neonPinkHover transition-all duration-300">
-                        Explorar Directorio <i class="fa-solid fa-arrow-right ml-2"></i>
-                    </button>
-                </div>
-            </div>
+        <div id="tab-home" class="tab-content active space-y-8 text-center py-12">
+            <h1 class="text-5xl font-bold text-white">Cultura Japonesa en <span class="text-neonPink neon-text-pink">Buenos Aires</span></h1>
+            <p class="text-gray-400 max-w-2xl mx-auto">Un prototipo interactivo para conectar la gastronomía, arte y eventos inspirados en Japón.</p>
+            <button onclick="switchTab('directory')" class="px-6 py-3 bg-neonPink text-white rounded-full shadow-neon">Explorar Directorio</button>
+        </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-cardBg p-6 rounded-2xl border border-white/5 space-y-4">
-                    <div class="w-12 h-12 rounded-xl bg-neonPink/10 flex items-center justify-center text-neonPink text-xl shadow-neon">
-                        <i class="fa-solid fa-utensils"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white">Gastronomía y Locales</h3>
-                    <p class="text-gray-400 text-sm">Encontrá desde el ramen más tradicional en Palermo hasta tiendas de importación especializadas en el Microcentro.</p>
+        <!-- VISTA: DIRECTORIO -->
+        <div id="tab-directory" class="tab-content space-y-6">
+            <h2 class="text-2xl font-bold text-white border-l-4 border-neonPink pl-3">Directorio Gastronómico y Cultural</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-cardBg p-5 rounded-xl border border-white/5">
+                    <span class="text-xs text-neonPink font-semibold uppercase tracking-wider">Gastronomía</span>
+                    <h3 class="text-xl font-bold text-white mt-1">Fuji Ramen Bar</h3>
+                    <p class="text-gray-400 text-sm mt-2">Especialistas en Hakata Tonkotsu y caldos artesanales en Palermo.</p>
                 </div>
-                <div class="bg-cardBg p-6 rounded-2xl border border-white/5 space-y-4">
-                    <div class="w-12 h-12 rounded-xl bg-neonBlue/10 flex items-center justify-center text-neonBlue text-xl shadow-neon-blue">
-                        <i class="fa-solid fa-calendar-check"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white">Eventos & Matsuri</h3>
-                    <p class="text-gray-400 text-sm">Mantenete al tanto de los festivales, talleres de origami, ferias de manga/anime y ciclos de cine debate.</p>
-                </div>
-                <div class="bg-cardBg p-6 rounded-2xl border border-white/5 space-y-4">
-                    <div class="w-12 h-12 rounded-xl bg-neonPurple/10 flex items-center justify-center text-neonPurple text-xl">
-                        <i class="fa-solid fa-users"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white">Comunidad Activa</h3>
-                    <p class="text-gray-400 text-sm">Un puente de intercambio cultural y comercial para creadores, difusores y amantes de la cultura nipona.</p>
+                <div class="bg-cardBg p-5 rounded-xl border border-white/5">
+                    <span class="text-xs text-neonBlue font-semibold uppercase tracking-wider">Cultura</span>
+                    <h3 class="text-xl font-bold text-white mt-1">Centro Sakura</h3>
+                    <p class="text-gray-400 text-sm mt-2">Talleres estacionales de caligrafía, idioma japonés y Origami en Almagro.</p>
                 </div>
             </div>
         </div>
 
-        <!-- VISTA: DIRECTORIO -->
-        <div id="tab-directory" class="tab-content space-y-8">
-            <div class="border-l-4 border-neonPink pl-4">
+        <!-- VISTA: MAPA -->
+        <div id="tab-map" class="tab-content space-y-4">
+            <h2 class="text-2xl font-bold text-white border-l-4 border-neonBlue pl-3">Mapa de Puntos de Interés</h2>
+            <div class="bg-cardBg h-64 rounded-xl border border-white/5 flex items-center justify-center text-gray-500">
+                <p>[Simulación de Mapa de Buenos Aires para el Cliente]</p>
+            </div>
+        </div>
+
+        <!-- VISTA: POSTULACIÓN -->
+        <div id="tab-apply" class="tab-content space-y-6">
+            <h2 class="text-2xl font-bold text-white border-l-4 border-neonPink pl-3">Postular Emprendimiento</h2>
+            <form id="apply-form" onsubmit="handleFormSubmit(event)" class="space-y-4 max-w-xl bg-cardBg p-6 rounded-xl border border-white/5">
+                <div>
+                    <label class="block text-sm text-gray-400 mb-1">Nombre del Comercio</label>
+                    <input type="text" required class="w-full bg-darkBg border border-white/10 rounded-lg p-2.5 text-white focus:border-neonPink focus:outline-none">
+                </div>
+                <button type="submit" class="w-full py-3 bg-neonPink hover:bg-neonPinkHover text-white font-medium rounded-lg shadow-neon transition-colors">Enviar Registro</button>
+            </form>
+            <div id="success-feedback" class="hidden p-6 bg-emerald-950/50 border border-emerald-500 rounded-xl text-center space-y-3">
+                <p class="text-emerald-400 font-medium">¡Postulación enviada correctamente!</p>
+                <button onclick="resetFormView()" class="text-xs text-gray-400 underline">Enviar otra respuesta</button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/5 py-6 text-center text-xs text-gray-600">
+        &copy; 2026 Kizuna BA. Prototipo Funcional.
+    </footer>
+
+    <!-- LÓGICA INTERACTIVA -->
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(b => {
+                b.classList.remove('bg-neonPink', 'text-white', 'shadow-neon');
+                b.classList.add('text-gray-300', 'hover:bg-white/5');
+            });
+            document.getElementById(`tab-${tabId}`).classList.add('active');
+            const activeBtn = document.getElementById(`btn-${tabId}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('text-gray-300', 'hover:bg-white/5');
+                activeBtn.classList.add('bg-neonPink', 'text-white', 'shadow-neon');
+            }
+        }
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            document.getElementById('apply-form').classList.add('hidden');
+            document.getElementById('success-feedback').classList.remove('hidden');
+        }
+        function resetFormView() {
+            document.getElementById('apply-form').reset();
+            document.getElementById('success-feedback').classList.add('hidden');
+            document.getElementById('apply-form').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
